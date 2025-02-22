@@ -1,8 +1,12 @@
 {
   "name": "schoolinker",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "schoolinker for school",
   "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neohum/schoolinker.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron . --watch",
@@ -49,7 +53,6 @@
         "publishAutoUpdate": true
       }
     ],
-  
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,

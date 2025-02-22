@@ -44,10 +44,13 @@ ipcMain.on('saveData', (event, data) => {
       console.log('File deleted!');
     });
   }
-  fs.writeFile('school_uid.txt', data, (err) => {
-    if (err) throw err;
+  // 0o666은 읽기/쓰기 권한을 모든 사용자에게 부여
+  fs.writeFile('school_uid.txt', data, { mode: 0o666 }, (err) => {
+    if (err) {
+      log.error('File write error:', err);
+      throw err;
+    }
     console.log('Data saved');
-    
   });
 
   const win = new BrowserWindow({
@@ -61,7 +64,6 @@ ipcMain.on('saveData', (event, data) => {
   })
 
   win.loadFile('next.html')
-  
 })
 
 
